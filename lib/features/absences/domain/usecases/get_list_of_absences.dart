@@ -17,7 +17,7 @@ import '../repositories/absences_repository.dart';
 class GetListOfAbsences extends UseCase<AbsencesResponse, GetAbsencesParams> {
   final AbsencesRepository repository;
 
-  GetListOfAbsences(this.repository);
+  GetListOfAbsences({required this.repository});
 
   @override
   AppResult<AbsencesResponse> call(GetAbsencesParams params) async {

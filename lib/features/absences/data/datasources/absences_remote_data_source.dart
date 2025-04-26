@@ -19,7 +19,7 @@ abstract class AbsencesRemoteDataSource {
   });
 }
 
-class AbsencesRemoteDataSourceImpl implements AbsencesRemoteDataSource {
+class AppAbsencesRemoteDataSource implements AbsencesRemoteDataSource {
   @override
   Future<AbsencesResponseModel> getListOfAbsences({
     required AbsenceType? type,
@@ -72,7 +72,7 @@ class AbsencesRemoteDataSourceImpl implements AbsencesRemoteDataSource {
         .toList();
 
     return AbsencesResponseModel(
-      count: absences.length,
+      totalCount: absences.length,
       absences: paginatedAbsences,
     );
   }

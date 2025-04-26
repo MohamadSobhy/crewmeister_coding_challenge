@@ -39,5 +39,15 @@ abstract class Absence extends Equatable {
     required this.member,
   });
 
+  String get status {
+    if (confirmedAt.trim().isNotEmpty) {
+      return 'Confirmed';
+    } else if (rejectedAt.trim().isNotEmpty) {
+      return 'Rejected';
+    } else {
+      return 'Requested';
+    }
+  }
+
   Map<String, dynamic> toJson();
 }
