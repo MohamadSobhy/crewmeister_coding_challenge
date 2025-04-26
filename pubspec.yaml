@@ -74,6 +74,9 @@ dependencies:
   # Shimmer Loading
   shimmer: ^3.0.0
 
+  # Native Splash Screen
+  flutter_native_splash: ^2.4.3
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -84,6 +87,45 @@ dev_dependencies:
   # package. See that file for information about deactivating specific lint
   # rules and activating additional ones.
   flutter_lints: ^5.0.0
+
+  # App Launch Icon
+  flutter_launcher_icons: ^0.14.2
+
+# App Launch Icon Configurations
+flutter_launcher_icons:
+  android: "ic_launcher"
+  ios: true
+  remove_alpha_ios: true
+  image_path: "assets/app_logo.png"
+  min_sdk_android: 21 # android min sdk min:16, default 21
+
+flutter_native_splash:
+  color: "#FFFFFF"
+  color_dark: "#FFFFFF"
+  image: assets/images/splash/splash_logo.png
+  image_dark: assets/images/splash/splash_logo.png
+
+  android_12:
+    # Splash screen background color.
+    color: "#FFFFFF"
+    image: assets/images/splash/android_12_splash_logo.png
+
+    color_dark: "#FFFFFF"
+    icon_background_color_dark: "#FFFFFF"
+    image_dark: assets/images/splash/android_12_splash_logo.png
+
+    # App icon background color.
+    icon_background_color: "#FFFFFF"
+
+    # The branding property allows you to specify an image used as branding in the splash screen.
+    #branding: assets/dart.png
+
+  android: true
+  ios: true
+  web: true
+  android_gravity: center
+  ios_content_mode: center
+  fullscreen: true
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
