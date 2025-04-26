@@ -9,7 +9,7 @@ enum AbsenceType {
   vacation,
   unknown;
 
-  static AbsenceType fromString(String type) {
+  static AbsenceType fromName(String? type) {
     final absenceType = AbsenceType.values.firstWhere(
       (e) => e.name == type,
       orElse: () => AbsenceType.unknown,

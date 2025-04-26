@@ -1,6 +1,7 @@
 import 'package:equatable/equatable.dart';
 
 import '../enums/absence_type.dart';
+import 'member.dart';
 
 /// The [Absence] class represents an absence entity with various properties.
 /// It extends the [Equatable] class to allow for value comparison based on its properties.
@@ -20,6 +21,7 @@ abstract class Absence extends Equatable {
   final String startDate;
   final AbsenceType type;
   final int userId;
+  final Member member;
 
   const Absence({
     required this.admitterId,
@@ -34,5 +36,8 @@ abstract class Absence extends Equatable {
     required this.startDate,
     required this.type,
     required this.userId,
+    required this.member,
   });
+
+  Map<String, dynamic> toJson();
 }

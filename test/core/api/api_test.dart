@@ -6,7 +6,7 @@ void main() {
   group('every member has key', () {
     ['id', 'name', 'userId', 'image'].forEach((key) {
       test(key, () async {
-        List<dynamic> memberData = await members();
+        List<dynamic> memberData = await fetchListOfMembers();
         memberData.forEach((member) {
           expect(member.containsKey(key), isTrue);
         });
@@ -29,7 +29,7 @@ void main() {
       'userId',
     ].forEach((key) {
       test(key, () async {
-        List<dynamic> absenceData = await absences();
+        List<dynamic> absenceData = await fetchListOfAbsences();
         absenceData.forEach((absence) {
           expect(absence.containsKey(key), isTrue);
         });

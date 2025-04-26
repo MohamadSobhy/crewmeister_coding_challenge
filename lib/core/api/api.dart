@@ -10,10 +10,10 @@ Future<List<dynamic>> readJsonFile(String path) async {
   return data['payload'];
 }
 
-Future<List<dynamic>> absences() async {
+Future<List<dynamic>> fetchListOfAbsences() async {
   return await readJsonFile(absencesPath);
 }
 
-Future<List<dynamic>> members() async {
+Future<List<dynamic>> fetchListOfMembers() async {
   return await readJsonFile(membersPath);
 }
