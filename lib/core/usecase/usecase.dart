@@ -21,3 +21,13 @@ class NoParams extends Equatable {
   @override
   List<Object?> get props => [];
 }
+
+class PaginationParams extends Equatable {
+  final int pageNo;
+  final int pageSize;
+
+  const PaginationParams({this.pageNo = 1, this.pageSize = 10});
+
+  @override
+  List<Object?> get props => [pageNo, pageSize];
+}
