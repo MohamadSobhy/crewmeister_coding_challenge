@@ -7,6 +7,7 @@ import 'features/absences/data/repositories/app_absences_repository.dart';
 import 'features/absences/domain/repositories/absences_repository.dart';
 import 'features/absences/domain/usecases/get_list_of_absences.dart';
 import 'features/absences/presentation/absences_bloc/absences_bloc.dart';
+import 'features/absences/presentation/controllers/absences_filters_controller.dart';
 
 final servLocator = GetIt.instance;
 
@@ -27,6 +28,8 @@ Future<void> initServiceLocator() async {
   servLocator.registerLazySingleton(
     () => AbsencesBloc(getListOfAbsences: servLocator()),
   );
+
+  servLocator.registerLazySingleton(() => AbsencesFiltersController());
 
   //? Absences Usecases
   servLocator.registerLazySingleton(

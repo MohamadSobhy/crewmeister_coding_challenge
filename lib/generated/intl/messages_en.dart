@@ -20,9 +20,30 @@ typedef String MessageIfAbsent(String messageStr, List<dynamic> args);
 class MessageLookup extends MessageLookupByLibrary {
   String get localeName => 'en';
 
+  static String m0(count) => "Absences (${count})";
+
+  static String m1(durationInDays) => "Period (${durationInDays})";
+
+  static String m2(startDate, endDate) => "From ${startDate} to ${endDate}";
+
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+        "absencesCountFormat": m0,
+        "admitter_note": MessageLookupByLibrary.simpleMessage("Admitter Note"),
+        "filters": MessageLookupByLibrary.simpleMessage("Filters"),
+        "member_note": MessageLookupByLibrary.simpleMessage("Member Note"),
+        "no_absences_msg":
+            MessageLookupByLibrary.simpleMessage("No absences found"),
         "no_internet_connection_msg":
-            MessageLookupByLibrary.simpleMessage("No internet connection")
+            MessageLookupByLibrary.simpleMessage("No internet connection"),
+        "periodFormatMsg": m1,
+        "periodRangeMsg": m2,
+        "refresh": MessageLookupByLibrary.simpleMessage("Refresh"),
+        "save": MessageLookupByLibrary.simpleMessage("Save"),
+        "select_absence_date":
+            MessageLookupByLibrary.simpleMessage("Select Absence Date"),
+        "select_absence_type":
+            MessageLookupByLibrary.simpleMessage("Select Absence Type"),
+        "status": MessageLookupByLibrary.simpleMessage("Status")
       };
 }

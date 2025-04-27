@@ -59,6 +59,126 @@ class S {
       args: [],
     );
   }
+
+  /// `Absences ({count})`
+  String absencesCountFormat(int count) {
+    return Intl.message(
+      'Absences ($count)',
+      name: 'absencesCountFormat',
+      desc: '',
+      args: [count],
+    );
+  }
+
+  /// `Filters`
+  String get filters {
+    return Intl.message(
+      'Filters',
+      name: 'filters',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Select Absence Type`
+  String get select_absence_type {
+    return Intl.message(
+      'Select Absence Type',
+      name: 'select_absence_type',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Select Absence Date`
+  String get select_absence_date {
+    return Intl.message(
+      'Select Absence Date',
+      name: 'select_absence_date',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Save`
+  String get save {
+    return Intl.message(
+      'Save',
+      name: 'save',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Period ({durationInDays})`
+  String periodFormatMsg(String durationInDays) {
+    return Intl.message(
+      'Period ($durationInDays)',
+      name: 'periodFormatMsg',
+      desc: '',
+      args: [durationInDays],
+    );
+  }
+
+  /// `From {startDate} to {endDate}`
+  String periodRangeMsg(String startDate, String endDate) {
+    return Intl.message(
+      'From $startDate to $endDate',
+      name: 'periodRangeMsg',
+      desc: '',
+      args: [startDate, endDate],
+    );
+  }
+
+  /// `Member Note`
+  String get member_note {
+    return Intl.message(
+      'Member Note',
+      name: 'member_note',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Admitter Note`
+  String get admitter_note {
+    return Intl.message(
+      'Admitter Note',
+      name: 'admitter_note',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Status`
+  String get status {
+    return Intl.message(
+      'Status',
+      name: 'status',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `No absences found`
+  String get no_absences_msg {
+    return Intl.message(
+      'No absences found',
+      name: 'no_absences_msg',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Refresh`
+  String get refresh {
+    return Intl.message(
+      'Refresh',
+      name: 'refresh',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

@@ -74,8 +74,14 @@ dependencies:
   # Shimmer Loading
   shimmer: ^3.0.0
 
+  # Dropdown Button
+  dropdown_button2: ^2.3.9
+
   # Native Splash Screen
   flutter_native_splash: ^2.4.3
+
+  # Add to Calendar
+  add_2_calendar: ^3.0.1
 
 dev_dependencies:
   flutter_test:

@@ -1,3 +1,39 @@
 {
-    "no_internet_connection_msg": "No internet connection"
+    "no_internet_connection_msg": "No internet connection",
+    "absencesCountFormat": "Absences ({count})",
+    "@absencesCountFormat": {
+        "placeholders": {
+            "count": {
+                "type": "int"
+            }
+        }
+    },
+    "filters": "Filters",
+    "select_absence_type": "Select Absence Type",
+    "select_absence_date": "Select Absence Date",
+    "save": "Save",
+    "periodFormatMsg": "Period ({durationInDays})",
+    "@periodFormatMsg": {
+        "placeholders": {
+            "durationInDays": {
+                "type": "String"
+            }
+        }
+    },
+    "periodRangeMsg": "From {startDate} to {endDate}",
+    "@periodRangeMsg": {
+        "placeholders": {
+            "startDate": {
+                "type": "String"
+            },
+            "endDate": {
+                "type": "String"
+            }
+        }
+    },
+    "member_note": "Member Note",
+    "admitter_note": "Admitter Note",
+    "status": "Status",
+    "no_absences_msg": "No absences found",
+    "refresh": "Refresh"
 }

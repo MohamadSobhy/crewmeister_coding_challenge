@@ -96,6 +96,8 @@ class AppModule {
   }
 
   void unfocus() => FocusScope.of(_context).unfocus();
+  void pop<T extends Object?>([T? result]) =>
+      Navigator.of(_context).pop(result);
 
   void startApp(Widget app) async => runApp(app);
 }

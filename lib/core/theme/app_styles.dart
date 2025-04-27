@@ -290,11 +290,11 @@ abstract class AppShadows {
 abstract class AppBorders {
   /// Inputs
   OutlineInputBorder inputBorder = OutlineInputBorder(
+    borderRadius: BorderRadius.circular(AppDimensions.dimen_8),
     borderSide: BorderSide(
-      color: AppModule.I.appColors.white.withOpacity(0.1),
-      width: 1.0,
+      color: AppModule.I.appColors.white,
+      width: 0.5,
     ),
-    borderRadius: const BorderRadius.all(Radius.circular(5.0)),
   );
 
   OutlineInputBorder inputFocusedBorder = OutlineInputBorder(
@@ -306,11 +306,8 @@ abstract class AppBorders {
   );
 
   OutlineInputBorder inputErrorBorder = OutlineInputBorder(
-    borderSide: BorderSide(
-      color: AppModule.I.appColors.redShades.shade60,
-      width: 1.0,
-    ),
-    borderRadius: const BorderRadius.all(Radius.circular(5.0)),
+    borderRadius: BorderRadius.circular(8),
+    borderSide: BorderSide(color: AppModule.I.appColors.errorColor),
   );
 
   /// Add any new borders here

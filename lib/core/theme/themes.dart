@@ -26,6 +26,7 @@ abstract class AppThemes {
           onSurface: AppModule.I.appColors.darkTextColor,
           brightness: Brightness.light,
           error: AppModule.I.appColors.redShades.shade60,
+          surface: AppModule.I.appColors.canvasColor,
         ),
         fontFamily: AppModule.I.defaultFontFamily,
         textTheme: TextTheme(

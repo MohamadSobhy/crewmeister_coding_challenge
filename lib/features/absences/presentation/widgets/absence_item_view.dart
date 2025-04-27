@@ -1,9 +1,11 @@
+import 'package:add_2_calendar/add_2_calendar.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../app_module.dart';
 import '../../../../core/theme/app_dimensions.dart';
 import '../../../../core/theme/app_styles.dart';
 import '../../../../core/widgets/tap_effect.dart';
+import '../../../../generated/l10n.dart';
 import '../../domain/entities/absence.dart';
 
 class AbsenceItemView extends StatelessWidget {
@@ -13,9 +15,24 @@ class AbsenceItemView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final translations = S.of(context);
+
     return TapEffect(
-      // Providing an empty function to just get the tap effect
-      onTap: () {},
+      onTap: () {
+        final Event event = Event(
+          title: absence.member.name,
+          description: absence.type.name,
+          location: '',
+          startDate: DateTime.tryParse(absence.startDate) ?? DateTime.now(),
+          endDate: DateTime.tryParse(absence.endDate) ?? DateTime.now(),
+          iosParams: IOSParams(reminder: Duration(hours: 1), url: ''),
+          androidParams: AndroidParams(
+            emailInvites: [],
+          ),
+        );
+
+        Add2Calendar.addEvent2Cal(event);
+      },
       child: Card(
         elevation: 0,
         color: AppModule.I.appColors.darkCanvasColor,
@@ -58,16 +75,16 @@ class AbsenceItemView extends StatelessWidget {
                 ],
               ),
               const SizedBox(height: AppDimensions.dimen_5),
-              Text('Period (${absence.durationInDays})'),
+              Text(translations.periodFormatMsg(absence.durationInDays)),
               Text(
-                'From ${absence.startDate} to ${absence.endDate}',
+                translations.periodRangeMsg(absence.startDate, absence.endDate),
                 style: AppModule.I.appStyles.text3(
                   color: AppModule.I.appColors.grey,
                 ),
               ),
               if (absence.memberNote.isNotEmpty) ...[
                 const SizedBox(height: AppDimensions.dimen_5),
-                Text('Member Note'),
+                Text(translations.member_note),
                 Text(
                   absence.memberNote,
                   style: AppModule.I.appStyles.text3(
@@ -77,7 +94,7 @@ class AbsenceItemView extends StatelessWidget {
               ],
               if (absence.admitterNote.isNotEmpty) ...[
                 const SizedBox(height: AppDimensions.dimen_5),
-                Text('Admitter Note'),
+                Text(translations.admitter_note),
                 Text(
                   absence.admitterNote,
                   style: AppModule.I.appStyles.text3(
@@ -86,7 +103,7 @@ class AbsenceItemView extends StatelessWidget {
                 ),
               ],
               const SizedBox(height: AppDimensions.dimen_5),
-              Text('Status'),
+              Text(translations.status),
               const SizedBox(height: AppDimensions.dimen_2),
               Row(
                 children: [

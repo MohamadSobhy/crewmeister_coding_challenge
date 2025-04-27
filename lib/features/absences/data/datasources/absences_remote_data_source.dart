@@ -67,7 +67,7 @@ class AppAbsencesRemoteDataSource implements AbsencesRemoteDataSource {
 
     // pagine list of absences based on pageInfo
     final paginatedAbsences = absences
-        .skip(pageInfo.pageNo * pageInfo.pageSize)
+        .skip((pageInfo.pageNo - 1) * pageInfo.pageSize)
         .take(pageInfo.pageSize)
         .toList();
 

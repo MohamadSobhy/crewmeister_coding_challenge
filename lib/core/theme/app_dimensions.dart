@@ -56,6 +56,7 @@ class AppDimensions {
   static const double dimen_120 = 120.0;
   static const double dimen_123 = 123.0;
   static const double dimen_150 = 150.0;
+  static const double dimen_200 = 200.0;
 
   /// Radius dimensions
   static const double smallRadius = 4.0;

@@ -7,6 +7,7 @@ import 'core/theme/app_dimensions.dart';
 import 'core/theme/providers/app_themes_provider.dart';
 import 'core/theme/themes.dart';
 import 'features/absences/presentation/absences_bloc/absences_bloc.dart';
+import 'features/absences/presentation/controllers/absences_filters_controller.dart';
 import 'injection_container.dart';
 import 'platform_app.dart';
 
@@ -15,12 +16,19 @@ class CrewmeisterCodingChallengeApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Provider(
-      create: (ctx) {
-        final bloc = servLocator<AbsencesBloc>();
-        bloc.add(GetListOfAbsencesEvent());
-        return bloc;
-      },
+    return MultiProvider(
+      providers: [
+        Provider(
+          create: (ctx) {
+            final bloc = servLocator<AbsencesBloc>();
+            bloc.add(GetListOfAbsencesEvent());
+            return bloc;
+          },
+        ),
+        ChangeNotifierProvider.value(
+          value: servLocator<AbsencesFiltersController>(),
+        ),
+      ],
       child: AppThemesProvider(
         scaffoldTheme: AppScaffoldTheme(
           backgroundGradientOpacity: 1,

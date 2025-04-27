@@ -49,5 +49,17 @@
 		<true/>
 		<key>UIViewControllerBasedStatusBarAppearance</key>
 		<false/>
+		<key>NSCalendarsUsageDescription</key>
+		<string>App requires this permission to be able to add events into your calendar</string>
+		<key>NSContactsUsageDescription</key>
+		<string>App requires this permission to be able to add events into your calendar</string>
+		<key>CFBundleLocalizations</key>
+		<array>
+			<string>en</string>
+			<string>es</string>
+			<string>pt</string>
+			<string>de</string>
+			<string>ar</string>
+		</array>
 	</dict>
 </plist>
