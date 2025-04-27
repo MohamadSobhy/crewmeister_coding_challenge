@@ -4,6 +4,9 @@
 // - `vacation`: Represents a vacation absence.
 // - `unknown`: Represents an unknown absence type.
 //
+import 'package:crewmeister_coding_challenge/app_module.dart';
+import 'package:flutter/services.dart';
+
 enum AbsenceType {
   sickness,
   vacation,
@@ -16,5 +19,27 @@ enum AbsenceType {
     );
 
     return absenceType;
+  }
+
+  Color get color {
+    switch (this) {
+      case AbsenceType.sickness:
+        return AppModule.I.appColors.salmon;
+      case AbsenceType.vacation:
+        return AppModule.I.appColors.canvasColor;
+      case AbsenceType.unknown:
+        return AppModule.I.appColors.grey;
+    }
+  }
+
+  Color get labelColor {
+    switch (this) {
+      case AbsenceType.sickness:
+        return AppModule.I.appColors.white;
+      case AbsenceType.vacation:
+        return AppModule.I.appColors.validColor;
+      case AbsenceType.unknown:
+        return AppModule.I.appColors.black;
+    }
   }
 }

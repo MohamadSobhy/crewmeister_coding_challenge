@@ -27,17 +27,17 @@ class AppAbsencesRemoteDataSource implements AbsencesRemoteDataSource {
     PaginationParams pageInfo = const PaginationParams(),
   }) async {
     // Simulate a network call to fetch absences
-    await Future.delayed(const Duration(seconds: 1));
+    await Future.delayed(const Duration(seconds: 2));
 
     final absenceJson = await fetchListOfAbsences();
-    final memberJson = await fetchListOfMembers();
+    final membersJson = await fetchListOfMembers();
 
     final absences = absenceJson
         .map(
-          (e) => AbsenceModel.fromJson(
-            e
-              ..['member'] = memberJson.firstWhere(
-                (e) => e['userId'] == e['userId'],
+          (absence) => AbsenceModel.fromJson(
+            absence
+              ..['member'] = membersJson.firstWhere(
+                (member) => member['userId'] == absence['userId'],
               ),
           ),
         )

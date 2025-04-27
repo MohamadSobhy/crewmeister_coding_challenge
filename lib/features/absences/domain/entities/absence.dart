@@ -1,4 +1,6 @@
+import 'package:crewmeister_coding_challenge/app_module.dart';
 import 'package:equatable/equatable.dart';
+import 'package:flutter/services.dart';
 
 import '../enums/absence_type.dart';
 import 'member.dart';
@@ -47,6 +49,24 @@ abstract class Absence extends Equatable {
     } else {
       return 'Requested';
     }
+  }
+
+  Color get statusColor {
+    if (confirmedAt.trim().isNotEmpty) {
+      return AppModule.I.appColors.validColor;
+    } else if (rejectedAt.trim().isNotEmpty) {
+      return AppModule.I.appColors.errorColor;
+    } else {
+      return AppModule.I.appColors.pendingColor;
+    }
+  }
+
+  String get durationInDays {
+    final start = DateTime.parse(startDate);
+    final end = DateTime.parse(endDate);
+    final days = end.difference(start).inDays + 1;
+
+    return '$days Day${days > 1 ? 's' : ''}';
   }
 
   Map<String, dynamic> toJson();

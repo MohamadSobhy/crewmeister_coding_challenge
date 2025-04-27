@@ -1,12 +1,14 @@
 import 'dart:convert';
-import 'dart:io';
+
+import 'package:flutter/services.dart';
 
 const absencesPath = 'json_files/absences.json';
 const membersPath = 'json_files/members.json';
 
 Future<List<dynamic>> readJsonFile(String path) async {
-  String content = await File(path).readAsString();
-  Map<String, dynamic> data = jsonDecode(content);
+  final fileContent = await rootBundle.loadString(path);
+  Map<String, dynamic> data = jsonDecode(fileContent);
+
   return data['payload'];
 }
 
