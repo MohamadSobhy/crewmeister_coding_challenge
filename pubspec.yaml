@@ -97,6 +97,10 @@ dev_dependencies:
   # App Launch Icon
   flutter_launcher_icons: ^0.14.2
 
+  # Mocking and Testing
+  mockito: ^5.4.5
+  mocktail: ^1.0.4
+
 # App Launch Icon Configurations
 flutter_launcher_icons:
   android: "ic_launcher"

@@ -16,11 +16,11 @@ class MemberModel extends Member {
 
   factory MemberModel.fromJson(Map<String, dynamic> json) {
     return MemberModel(
-      crewId: json['crew_id'] ?? 0,
+      crewId: json['crewId'] ?? 0,
       id: json['id'] ?? 0,
       image: json['image'] ?? '',
       name: json['name'] ?? '',
-      userId: json['user_id'] ?? 0,
+      userId: json['userId'] ?? 0,
     );
   }
 

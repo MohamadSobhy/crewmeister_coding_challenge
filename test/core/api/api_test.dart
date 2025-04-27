@@ -3,6 +3,7 @@ import 'package:flutter_test/flutter_test.dart';
 import '../../../lib/core/api/api.dart';
 
 void main() {
+  TestWidgetsFlutterBinding.ensureInitialized();
   group('every member has key', () {
     ['id', 'name', 'userId', 'image'].forEach((key) {
       test(key, () async {
