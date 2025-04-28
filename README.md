@@ -43,3 +43,4 @@ https://github.com/user-attachments/assets/8d76e847-3ee8-4a40-b003-b7e97905d821
 
 - To run Widgets Tests
 Run `flutter run -t test/features/absences/presentation/pages/absences_list_page_test.dart`
+<img width="1279" alt="image" src="https://github.com/user-attachments/assets/4659c3b3-f80b-4efb-8fd3-3bae6d1bffa3" />
