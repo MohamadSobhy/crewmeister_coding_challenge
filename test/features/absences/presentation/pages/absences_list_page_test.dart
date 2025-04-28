@@ -99,9 +99,6 @@ void main() async {
       "userId": 2664
     },
   };
-  final tAbsenceType = AbsenceType.sickness;
-  final tDate = DateTime.now();
-  final tPageInfo = PaginationParams(pageNo: 1, pageSize: 10);
   final tAbsencesEmptyResponse =
       AbsencesResponseModel(totalCount: 0, absences: []);
   final tAbsencesResultResponse = AbsencesResponseModel(
@@ -224,15 +221,19 @@ void main() async {
           arrangeMockGetListOfAbsencesToReturnEmptySuccessResponse();
           await tester.pumpWidget(createWidgetUnderTest());
 
-          // act
-          bloc.add(GetListOfAbsencesEvent());
-          await tester.pump(const Duration(seconds: 1));
+          await tester.runAsync(() async {
+            // act
+            bloc.add(GetListOfAbsencesEvent());
 
-          // assert
-          expect(
-            find.byKey(ConstantKeys.kLoadingIndicator),
-            findsOneWidget,
-          );
+            await Future.delayed(const Duration(milliseconds: 1));
+            await tester.pump();
+
+            // assert
+            expect(
+              find.byKey(ConstantKeys.kLoadingIndicator),
+              findsOneWidget,
+            );
+          });
         },
       );
       testWidgets(
@@ -243,12 +244,18 @@ void main() async {
           arrangeMockGetListOfAbsencesToReturnFailureResponse(failure);
           await tester.pumpWidget(createWidgetUnderTest());
 
-          // act
-          bloc.add(GetListOfAbsencesEvent());
-          await tester.pumpAndSettle();
+          await tester.runAsync(() async {
+            // act
+            bloc.add(GetListOfAbsencesEvent());
 
-          // assert
-          expect(find.byKey(ConstantKeys.kErrorView), findsOneWidget);
+            await Future.delayed(const Duration(milliseconds: 2));
+            await tester.pump();
+
+            await tester.pumpAndSettle();
+
+            // assert
+            expect(find.byKey(ConstantKeys.kErrorView), findsOneWidget);
+          });
         },
       );
 
@@ -259,12 +266,17 @@ void main() async {
           arrangeMockGetListOfAbsencesToReturnEmptySuccessResponse();
           await tester.pumpWidget(createWidgetUnderTest());
 
-          // act
-          bloc.add(GetListOfAbsencesEvent());
-          await tester.pumpAndSettle();
+          await tester.runAsync(() async {
+            // act
+            bloc.add(GetListOfAbsencesEvent());
 
-          // assert
-          expect(find.byKey(ConstantKeys.kNoDataView), findsOneWidget);
+            await Future.delayed(const Duration(milliseconds: 3));
+
+            await tester.pump(Duration(seconds: 2));
+
+            // assert
+            expect(find.byKey(ConstantKeys.kNoDataView), findsOneWidget);
+          });
         },
       );
 
@@ -275,12 +287,17 @@ void main() async {
           arrangeMockGetListOfAbsencesToReturnResultSuccessResponse();
           await tester.pumpWidget(createWidgetUnderTest());
 
-          // act
-          bloc.add(GetListOfAbsencesEvent());
-          await tester.pumpAndSettle();
+          await tester.runAsync(() async {
+            // act
+            bloc.add(GetListOfAbsencesEvent());
 
-          // assert
-          expect(find.byKey(ConstantKeys.kAbsencesListView), findsOneWidget);
+            await Future.delayed(const Duration(milliseconds: 2));
+            await tester.pump();
+            await tester.pump(Duration(seconds: 2));
+
+            // assert
+            expect(find.byKey(ConstantKeys.kAbsencesListView), findsOneWidget);
+          });
         },
       );
     },
