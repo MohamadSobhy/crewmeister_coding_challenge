@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../app_module.dart';
+import '../../../../core/constants/constant_keys.dart';
 import '../../../../core/enums/app_toast_mode.dart';
 import '../../../../core/theme/app_dimensions.dart';
 import '../../../../core/theme/app_styles.dart';
@@ -39,9 +40,12 @@ class AbsencesListPage extends StatelessWidget {
               state is AbsencesFetchedState,
           builder: (ctx, state) {
             if (state is AbsencesLoadingState) {
-              return AbsenceListShimmerView();
+              return AbsenceListShimmerView(
+                key: ConstantKeys.kLoadingIndicator,
+              );
             } else if (state is AbsencesErrorState) {
               return AppErrorView(
+                key: ConstantKeys.kErrorView,
                 message: state.message,
                 onRefresh: () => refreshAbsencesList(context),
               );
@@ -73,9 +77,11 @@ class AbsencesListPage extends StatelessWidget {
                     Expanded(
                       child: state.response.absences.isEmpty
                           ? AppNoDataView(
+                              key: ConstantKeys.kNoDataView,
                               message: translations.no_absences_msg,
                             )
                           : RefreshIndicator(
+                              key: ConstantKeys.kAbsencesListView,
                               onRefresh: () async {
                                 refreshAbsencesList(context);
                               },
@@ -119,7 +125,7 @@ class AbsencesListPage extends StatelessWidget {
               );
             }
 
-            return const SizedBox();
+            return SizedBox(key: ConstantKeys.kInitialSizedBox);
           },
         ),
       ),

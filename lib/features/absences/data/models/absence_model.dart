@@ -36,7 +36,7 @@ class AbsenceModel extends Absence {
       startDate: json['startDate'] ?? '',
       type: AbsenceType.fromName(json['type']?.toString()),
       userId: json['userId'] ?? -1,
-      member: MemberModel.fromJson(json['member']),
+      member: MemberModel.fromJson(json['member'] ?? {}),
     );
   }
 

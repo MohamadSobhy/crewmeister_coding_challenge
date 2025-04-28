@@ -40,3 +40,6 @@ https://github.com/user-attachments/assets/8d76e847-3ee8-4a40-b003-b7e97905d821
 - Run `flutter test` command
 
 <img width="736" alt="image" src="https://github.com/user-attachments/assets/32775a36-48bb-4133-879f-4fc495ca4601" />
+
+- To run Widgets Tests
+Run `flutter run -t test/features/absences/presentation/pages/absences_list_page_test.dart`
